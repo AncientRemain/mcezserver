@@ -1,0 +1,41 @@
+{
+  "name": "craftdock",
+  "productName": "CraftDock",
+  "version": "2.0.0",
+  "description": "Modern Minecraft server manager: Java (Vanilla, Paper, Purpur, Folia, Leaf, Spigot, Sponge, Fabric, Quilt, Forge, NeoForge, Mohist, Youer), Velocity and Bedrock",
+  "main": "main.js",
+  "private": true,
+  "license": "MIT",
+  "author": "AncientRemain",
+  "repository": "https://github.com/AncientRemain/CraftDock",
+  "homepage": "https://github.com/AncientRemain/CraftDock",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win"
+  },
+  "dependencies": {
+    "adm-zip": "^0.6.1"
+  },
+  "devDependencies": {
+    "electron": "^44.9.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "appId": "app.craftdock.desktop",
+    "productName": "CraftDock",
+    "files": ["main.js", "preload.js", "src/**/*", "renderer/**/*", "build/icon.png", "package.json"],
+    "directories": { "output": "dist" },
+    "win": {
+      "target": ["nsis"],
+      "icon": "build/icon.png"
+    },
+    "nsis": {
+      "include": "build/installer.nsh",
+      "deleteAppDataOnUninstall": false,
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "shortcutName": "CraftDock"
+    }
+  }
+}
